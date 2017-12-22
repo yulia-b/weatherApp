@@ -14,6 +14,8 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,6 +23,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Inject
+    Retrofit retrofit;
 
     String TAG = "WEATHER";
     WeatherAPI weatherAPI;
@@ -36,11 +41,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(WeatherAPI.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        ((App) getApplication()).getNetComponent().inject(this);
+
         weatherAPI = retrofit.create(WeatherAPI.class);
+
 
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -48,9 +52,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getWeather(View view) {
-        Double lat = 51.5074;
-        Double lng = 0.1278;
-        int cnt = 10;
+        Double lat = 54.7104;
+        Double lng = 20.4522;
+        int cnt = 20;
         String units = "metric";
         String key = WeatherAPI.KEY;
 
