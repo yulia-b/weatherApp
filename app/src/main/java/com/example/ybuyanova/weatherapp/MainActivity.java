@@ -1,5 +1,6 @@
 package com.example.ybuyanova.weatherapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +52,19 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                //TrxHistoryDetailResponse response = recyclerAdapter.getInfo().getTrxHistoryDetails()[position];
+                //startActivity(TransactionDetailActivity.init(ctx, response));
+                WeatherInfo info = MyAdapter.getInfo(position);
+                Intent intent = new Intent(MainActivity.this, Details.class);
+                intent.putExtra("WeatherInfo", Parcels.wrap(info));
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void getWeather(View view) {

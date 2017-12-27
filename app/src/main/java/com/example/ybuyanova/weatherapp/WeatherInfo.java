@@ -3,12 +3,14 @@ package com.example.ybuyanova.weatherapp;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
 import java.util.List;
 
 /**
  * Created by ybuyanova on 18/12/2017.
  */
-
+@Parcel//(analyze = WeatherInfo.class)
 public class WeatherInfo {
     @SerializedName("name")
     private String city;
@@ -17,7 +19,8 @@ public class WeatherInfo {
         return city;
     }
 
-    public class Temp {
+    @Parcel
+    public static class Temp {
         Double temp;
         Double temp_min;
         Double temp_max;
@@ -30,7 +33,8 @@ public class WeatherInfo {
         return String.valueOf(temp.temp) + " °C";
     }
 
-    public class WeatherDescription {
+    @Parcel
+    public static class WeatherDescription {
         String description;
         String icon;
     }

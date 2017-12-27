@@ -21,7 +21,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private Context context;
 
-    private ArrayList<WeatherInfo> values;
+    private static ArrayList<WeatherInfo> values;
+
+    public static WeatherInfo getInfo(int position)
+    {
+        return values.get(position);
+    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -80,6 +85,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         Picasso.with(context)
                 .load(weather.getIcon())
                 .into(holder.icon);
+
+
 
     }
 
