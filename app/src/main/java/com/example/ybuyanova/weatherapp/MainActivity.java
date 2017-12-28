@@ -9,13 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -23,7 +19,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 //TrxHistoryDetailResponse response = recyclerAdapter.getInfo().getTrxHistoryDetails()[position];
                 //startActivity(TransactionDetailActivity.init(ctx, response));
                 WeatherInfo info = MyAdapter.getInfo(position);
-                Intent intent = new Intent(MainActivity.this, Details.class);
+                Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
                 intent.putExtra("WeatherInfo", Parcels.wrap(info));
                 startActivity(intent);
             }
@@ -68,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getWeather(View view) {
-        Double lat = 54.7104;
-        Double lng = 20.4522;
+        Double lat = 52.2297;
+        Double lng = 21.0122;
         int cnt = 20;
         String units = "metric";
         String key = WeatherAPI.KEY;

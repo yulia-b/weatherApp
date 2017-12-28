@@ -79,8 +79,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         final WeatherInfo weather = values.get(position);
         holder.city.setText(weather.getCity());
-        holder.temp.setText(weather.getTemp().toString());
-        holder.desc.setText(weather.getDescription());
+        holder.temp.setText(weather.getTemp().temp.toString());
+        holder.desc.setText(weather.getDescription().get(0).description);
 
         Picasso.with(context)
                 .load(weather.getIcon())

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 26
     dataBinding {
@@ -37,6 +38,7 @@ dependencies {
     compile 'org.parceler:parceler-api:1.1.9'
     annotationProcessor 'org.parceler:parceler:1.1.9'
     compile "com.squareup.retrofit2:converter-gson:2.2.0"
+    //classpath "com.android.databinding:dataBinder:1.+"
 
 
     // Dagger 2
@@ -49,6 +51,7 @@ dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:2.13"
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
     //endregion
+
 
 
 }
