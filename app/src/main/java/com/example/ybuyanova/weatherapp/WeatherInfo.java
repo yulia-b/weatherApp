@@ -1,45 +1,33 @@
 package com.example.ybuyanova.weatherapp;
 
-
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
-import android.databinding.BindingAdapter;
-import android.databinding.InverseBindingAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.google.gson.annotations.SerializedName;
-import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcel;
 
 import java.util.List;
 
 @Parcel
-public class WeatherInfo extends BaseObservable {
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setTemp(Temp temp) {
-
-        this.temp = temp;
-    }
-
-    public void setDescription(List<WeatherDescription> description) {
-        this.description.get(0).description = description.get(0).description;
-    }
+public class WeatherInfo {
 
     @SerializedName("name")
     private String city;
 
-    @Bindable
+
     public String getCity() {
         return city;
     }
 
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     @Parcel
     public static class Temp {
+
+        Double temp;
+        Double temp_min;
+        Double temp_max;
+
         public void setTemp(Double temp) {
             this.temp = temp;
         }
@@ -48,33 +36,26 @@ public class WeatherInfo extends BaseObservable {
             return temp;
         }
 
-        Double temp;
-        Double temp_min;
-        Double temp_max;
-
-
-        @BindingAdapter("android:text")
-        public static void setText(TextView view, double value) {
-            view.setText(Double.toString(value));
-        }
-
-        @InverseBindingAdapter(attribute = "android:text")
-        public static double getText(TextView view) {
-            return Double.parseDouble(view.getText().toString());
-        }
-
     }
 
     @SerializedName("main")
     private Temp temp;
 
-    @Bindable
+    public void setTemp(Temp temp) {
+        this.temp = temp;
+    }
+
     public Temp getTemp() {
         return temp;
     }
 
+
     @Parcel
     public static class WeatherDescription {
+
+        String description;
+        String icon;
+
         public String getDescription() {
             return description;
         }
@@ -92,35 +73,16 @@ public class WeatherInfo extends BaseObservable {
             this.icon = icon;
         }
 
-        String description;
-        String icon;
     }
 
     @SerializedName("weather")
     private List<WeatherDescription> description;
 
-    @Bindable
     public List<WeatherDescription> getDescription() {
         return description;
     }
 
-
-    @BindingAdapter("android:text")
-    public static void setText(TextView view, String value) {
-        view.setText(value);
+    public void setDescription(List<WeatherDescription> description) {
+        this.description = description;
     }
-
-    @InverseBindingAdapter(attribute = "android:text")
-    public static String getText(TextView view) {
-        return view.getText().toString();
-    }
-
-    @BindingAdapter({"bind:icon"})
-    public static void loadImage(ImageView view, String imageUrl) {
-        Picasso.with(view.getContext())
-                .load(imageUrl)
-                .into(view);
-    }
-
-
 }

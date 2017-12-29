@@ -4,14 +4,7 @@
     <data>
         <variable
         name="info"
-        type="com.example.ybuyanova.weatherapp.WeatherInfo" />
-        <variable
-            name="temp"
-            type="com.example.ybuyanova.weatherapp.WeatherInfo.Temp" />
-        <variable
-            name="desc"
-            type="com.example.ybuyanova.weatherapp.WeatherInfo.WeatherDescription" />
-
+        type="com.example.ybuyanova.weatherapp.WeatherInfoViewModel" />
     </data>
 
     <LinearLayout
@@ -30,14 +23,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={temp.temp}"
+            android:text="@={info.temp.temp}"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@={desc.description}"
+            android:text="@={info.description.description}"
             android:textColor="?attr/colorPrimary"
             android:textSize="24sp" />
 

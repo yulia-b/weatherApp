@@ -3,7 +3,6 @@ package com.example.ybuyanova.weatherapp;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.example.ybuyanova.weatherapp.databinding.ActivityDetailsBinding;
 
@@ -16,8 +15,7 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ActivityDetailsBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_details);
         WeatherInfo wI = Parcels.unwrap(this.getIntent().getParcelableExtra("WeatherInfo"));
-        binding.setInfo(wI);
-        binding.setTemp(wI.getTemp());
-        binding.setDesc(wI.getDescription().get(0));
+        binding.setInfo(new WeatherInfoViewModel(wI, this));
+
     }
 }
