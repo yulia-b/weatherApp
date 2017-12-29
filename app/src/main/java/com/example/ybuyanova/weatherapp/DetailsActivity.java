@@ -14,12 +14,10 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_details);
         ActivityDetailsBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_details);
         WeatherInfo wI = Parcels.unwrap(this.getIntent().getParcelableExtra("WeatherInfo"));
         binding.setInfo(wI);
         binding.setTemp(wI.getTemp());
         binding.setDesc(wI.getDescription().get(0));
-
     }
 }
