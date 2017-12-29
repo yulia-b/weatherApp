@@ -7,10 +7,6 @@ import dagger.Provides;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by ybuyanova on 21/12/2017.
- */
-
 @Module
 public class NetModule {
 
@@ -18,8 +14,7 @@ public class NetModule {
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit()
-    {
+    Retrofit provideRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

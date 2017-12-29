@@ -19,6 +19,5 @@ public class DetailsActivity extends AppCompatActivity {
         binding.setInfo(wI);
         binding.setTemp(wI.getTemp());
         binding.setDesc(wI.getDescription().get(0));
-
     }
 }

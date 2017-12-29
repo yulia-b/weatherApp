@@ -5,7 +5,6 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
 import android.databinding.InverseBindingAdapter;
-import android.net.Uri;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,9 +15,6 @@ import org.parceler.Parcel;
 
 import java.util.List;
 
-/**
- * Created by ybuyanova on 18/12/2017.
- */
 @Parcel
 public class WeatherInfo extends BaseObservable {
     public void setCity(String city) {
@@ -35,7 +31,6 @@ public class WeatherInfo extends BaseObservable {
     }
 
     @SerializedName("name")
-
     private String city;
 
     @Bindable

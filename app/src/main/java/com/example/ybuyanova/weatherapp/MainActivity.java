@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-             
+
                 WeatherInfo info = MyAdapter.getInfo(position);
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
                 intent.putExtra("WeatherInfo", Parcels.wrap(info));
