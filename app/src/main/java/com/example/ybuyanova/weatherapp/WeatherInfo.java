@@ -5,9 +5,12 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.BindingAdapter;
 import android.databinding.InverseBindingAdapter;
+import android.net.Uri;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.annotations.SerializedName;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcel;
 
@@ -82,6 +85,7 @@ public class WeatherInfo extends BaseObservable {
         }
 
         public String getIcon() {
+            icon = "http://openweathermap.org/img/w/" + icon + ".png";
             return icon;
         }
 
@@ -105,10 +109,6 @@ public class WeatherInfo extends BaseObservable {
         return description;
     }
 
-    @Bindable
-    public String getIcon() {
-        return "http://openweathermap.org/img/w/" + description.get(0).icon + ".png";
-    }
 
     @BindingAdapter("android:text")
     public static void setText(TextView view, String value) {
@@ -118,6 +118,13 @@ public class WeatherInfo extends BaseObservable {
     @InverseBindingAdapter(attribute = "android:text")
     public static String getText(TextView view) {
         return view.getText().toString();
+    }
+
+    @BindingAdapter({"bind:icon"})
+    public static void loadImage(ImageView view, String imageUrl) {
+        Picasso.with(view.getContext())
+                .load(imageUrl)
+                .into(view);
     }
 
 
