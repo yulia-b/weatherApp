@@ -33,8 +33,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         public void bind(WeatherInfoViewModel info) {
             mBinding.setInfo(info);
-           // mBinding.setTemp(info.getTemp());
-           // mBinding.setDesc(info.getDescription().get(0));
             mBinding.executePendingBindings();
         }
 
@@ -67,16 +65,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
-       WeatherCellBinding binding = holder.mBinding;
-
-       binding.setInfo(new WeatherInfoViewModel(values.get(position), context));
-        //binding.setAvm(new ArticleViewModel(mArticles.get(position), mContext));
-
-
-
-//        WeatherInfo info = values.get(position);
-//        holder.bind(info);
-
+        WeatherCellBinding binding = holder.mBinding;
+        binding.setInfo(new WeatherInfoViewModel(values.get(position), context));
     }
 
     @Override

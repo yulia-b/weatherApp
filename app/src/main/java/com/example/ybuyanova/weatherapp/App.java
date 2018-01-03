@@ -2,9 +2,6 @@ package com.example.ybuyanova.weatherapp;
 
 import android.app.Application;
 
-/**
- * Created by ybuyanova on 22/12/2017.
- */
 
 public class App extends Application {
 

@@ -4,9 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 
-/**
- * Created by ybuyanova on 27/12/2017.
- */
 
 public class ItemClickSupport {
     private final RecyclerView mRecyclerView;
