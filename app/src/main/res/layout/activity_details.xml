@@ -18,21 +18,24 @@
             android:layout_height="wrap_content"
             android:text="@={info.city}"
             android:textColor="@android:color/holo_blue_light"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:elevation="10dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@={info.temp.temp}"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:elevation="10dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@={info.description.description}"
             android:textColor="?attr/colorPrimary"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:elevation="10dp"/>
 
     </LinearLayout>
 </layout>
